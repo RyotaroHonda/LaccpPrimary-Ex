@@ -8,11 +8,11 @@
 
 #set_clock_groups -name async_input -physically_exclusive -group [get_clocks clk_osc] -group [get_clocks clk_hul]
 
-#create_clock -period 1.600 -name c6c_fast -waveform {0.000 0.800} [get_pins u_BUFG_Fast_inst/O]
-#set_input_jitter c6c_fast 0.030
+create_clock -period 1.600 -name clk_fast -waveform {0.000 0.800} [get_pins u_BUFG_Fast/O]
+set_input_jitter clk_fast 0.030
 
-#create_clock -period 8.000 -name c6c_slow -waveform {0.000 4.000} [get_pins u_BUFG_Slow_inst/O]
-#set_input_jitter c6c_slow 0.030
+create_clock -period 8.000 -name clk_slow -waveform {0.000 4.000} [get_pins u_BUFG_Slow/O]
+set_input_jitter clk_slow 0.030
 
 #create_clock -period 2.000 -name clk_fast -waveform {0.000 1.000} [get_ports CLK_FASTP]
 #set_input_jitter clk_fast 0.030
@@ -49,8 +49,8 @@ create_generated_clock -name clk_sys [get_pins u_ClkMan_Inst/inst/mmcm_adv_inst/
 create_generated_clock -name clk_indep [get_pins u_ClkMan_Inst/inst/mmcm_adv_inst/CLKOUT1]
 create_generated_clock -name clk_spi [get_pins u_ClkMan_Inst/inst/mmcm_adv_inst/CLKOUT2]
 
-create_generated_clock -name clk_fast [get_pins u_MMCM_CDCM/inst/mmcm_adv_inst/CLKOUT0]
-create_generated_clock -name clk_slow [get_pins u_MMCM_CDCM/inst/mmcm_adv_inst/CLKOUT1]
+#create_generated_clock -name clk_slow [get_pins u_MMCM_CDCM/inst/mmcm_adv_inst/CLKOUT0]
+#create_generated_clock -name clk_fast [get_pins u_MMCM_CDCM/inst/mmcm_adv_inst/CLKOUT1]
 
 create_generated_clock -name clk_gmii1 [get_pins u_GtClockDist_Inst/core_clocking_i/mmcm_adv_inst/CLKOUT0]
 create_generated_clock -name clk_gmii2 [get_pins u_GtClockDist_Inst/core_clocking_i/mmcm_adv_inst/CLKOUT1]
