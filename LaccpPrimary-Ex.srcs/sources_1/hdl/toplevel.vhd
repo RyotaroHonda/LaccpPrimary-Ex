@@ -129,8 +129,8 @@ architecture Behavioral of toplevel is
   constant kDummy     : regLeaf := (Index => 0);
 
   -- MIKUMARI -----------------------------------------------------------------------------
-  --constant  kPcbVersion : string:= "GN-2006-4";
-  constant  kPcbVersion : string:= "GN-2006-1";
+  constant  kPcbVersion : string:= "GN-2006-4";
+  --constant  kPcbVersion : string:= "GN-2006-1";
 
   function GetMikuIoStd(version: string) return string is
   begin
